@@ -8,7 +8,6 @@ load_dotenv()
 # Retrieve API keys from environment variables
 api_key = os.getenv('ALCHEMY_KEY')
 
-# w3 = Web3(HTTPProvider(f"https://eth-mainnet.g.alchemy.com/v2/tD-YgnNGrJGl0L-u-a88JHkxQGZVubCm")) # ETHEREUM
 w3 = Web3(HTTPProvider(f"https://base-mainnet.g.alchemy.com/v2/{api_key}")) # BASE
 
 def add(a, b):
