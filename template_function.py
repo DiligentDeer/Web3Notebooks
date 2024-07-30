@@ -56,29 +56,3 @@ def query_smart_contract(w3, contract_address, abi, function_name, *args, block_
         return f'Error querying smart contract: {e}'
 
 
-def get_arcadia_account_data(account_address, block=w3.eth.block_number):
-    try:
-        # Pool contract
-        contract = w3.eth.contract(
-            address=Web3.to_checksum_address(account_address), #0xb2DF87b16682435bdf29494fEA44dF5374F22f3E
-            abi=[{
-        "inputs": [],
-        "name": "generateAssetData",
-        "outputs": [
-            {
-                "internalType": "address[]",
-                "name": "assetAddresses",
-                "type": "address[]",
-            },
-            {"internalType": "uint256[]", "name": "assetIds", "type": "uint256[]"},
-            {"internalType": "uint256[]", "name": "assetAmounts", "type": "uint256[]"},
-        ],
-        "stateMutability": "view",
-        "type": "function",
-    }]
-        )
-        data = contract.functions.generateAssetData().call(block_identifier=int(block))
-        return data
-    except Exception as e:
-        return f'Error fetching pool_oracle: {e}'
-
