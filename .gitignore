@@ -1,3 +1,6 @@
 env/
 .env
 isolated/
+__pycache__/
+arcadia_analysis/__pycache__/
+ethena_research/__pycache__/
